@@ -67,7 +67,7 @@ namespace Lab4_3
 
         public override string ToString()
         {
-            return base.ToString($"{Company} {ContactName} {ContactEmail} {Phone}");
+            return $"{Company} {ContactName} {ContactEmail} {Phone}";
         }
 
     }
@@ -75,7 +75,15 @@ namespace Lab4_3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Customer c1 = new Customer("\nRocket Mortgage", "\nMarko Johnson", "\nmarkojohnson@rocketmortgage.com", "\n(555) 555-1234");
+            //Console.WriteLine(c1);
+            //Console.WriteLine(c1.GetContactEmail());
+            //Console.WriteLine(c1.GetPhone());
+            //Console.WriteLine(c1.GetContactName());
+            //Console.WriteLine(c1.GetCompany());
+
+            string contacts = c1.ToString();
+            Console.WriteLine(contacts);
         }
     }
 }
