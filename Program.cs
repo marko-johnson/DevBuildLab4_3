@@ -68,7 +68,7 @@ namespace Lab4_3
 
         public override string ToString()
         {
-            return $"{Company} {ContactName} {ContactEmail} {Phone}";
+            return $"\nCompany: {Company} \nContact Name: {ContactName} \nContactEmail: {ContactEmail} \nPhone: {Phone}";
         }
 
     }
@@ -95,7 +95,7 @@ namespace Lab4_3
         }
         static void Main(string[] args)
         {
-            //Customer c1 = new Customer("\nRocket Mortgage", "\nMarko Johnson", "\nmarkojohnson@rocketmortgage.com", "\n(555) 555-1234");
+            //Customer c1 = new Customer("\nRocket Mortgage", "\nMichael Johnson", "\nmichaeljohnson@rocketmortgage.com", "\n(555) 555-1234");
             //Console.WriteLine(c1);
             //Console.WriteLine(c1.GetContactEmail());
             //Console.WriteLine(c1.GetPhone());
@@ -107,23 +107,54 @@ namespace Lab4_3
 
             List<Customer> contacts = new List<Customer>();
 
-            Customer mycustomer = new Customer("Rocket Mortgage", "\nRobert Tims", "\nroberttims@rocketmortgage.com", "\n(555) 555-1234");
+            Customer mycustomer = new Customer("Rocket Mortgage", "Robert Tims", "roberttims@rocketmortgage.com", "(555) 555-1234");
             contacts.Add(mycustomer);
 
             Console.WriteLine("Here is the list of contacts:");
             ListCustomer(contacts);
 
             
-            mycustomer = new Customer("\nSecurAmerica", "\nJesse Spratt", "\njessespratt@gmail.com", "\n(555) 444-1234");
+            mycustomer = new Customer("SecurAmerica", "Jesse Spratt", "jessespratt@gmail.com", "(555) 444-1234");
             contacts.Add(mycustomer);
 
-            mycustomer = new Customer("\nRock Financial", "\nVanessa Wilson", "\nvanessawilson@gmail.com", "\n(555) 888-1234");
+            mycustomer = new Customer("Rock Financial", "Vanessa Wilson", "vanessawilson@gmail.com", "(555) 888-1234");
             contacts.Add(mycustomer);
+
+            mycustomer = new Customer("SecurAmerica", "Nancy Williams", "nancyw@gmail.com", "(555) 333-1234");
+            contacts.Add(mycustomer);
+
 
             Console.WriteLine("\nHere is an updated list of contacts:");
             ListCustomer(contacts);
 
 
+
+
+            //string list = mycustomer.ToString();
+            //Console.WriteLine(list);
+
+            Console.WriteLine("\nPlease enter a company name to search for customers associated with company: ");
+            string response = Console.ReadLine();
+            
+
+
+
+            mycustomer = SearchByCompany(contacts, response);
+            if (mycustomer != null)
+            {
+                
+                Console.WriteLine($"\nCustomer for {response} was found in database!");
+                Console.WriteLine(mycustomer);
+            }
+            else
+            {
+                Console.WriteLine($"\nCustomer for {response} was not found in the database!");
+            }
+
+
+
+
+            
 
         }
     }
