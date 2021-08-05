@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lab4_3
 {
@@ -10,13 +11,13 @@ namespace Lab4_3
         private string Phone;
 
 
+        // Constructor
         public Customer(string _Company, string _ContactName, string _ContactEmail, string _Phone)
         {
             SetCompany(_Company);
             SetContactName(_ContactName);
             SetContactEmail(_ContactEmail);
             SetPhone(_Phone);
-
         }
 
         // Getters and Setters for Company
@@ -73,17 +74,57 @@ namespace Lab4_3
     }
     class Program
     {
+        static void ListCustomer(List<Customer> customerlist)
+        {
+            foreach (Customer next in customerlist)
+            {
+                Console.WriteLine(next); 
+            }
+        }
+
+        static Customer SearchByCompany(List<Customer> customerlist, string _Company)
+        {
+            foreach (Customer next in customerlist)
+            {
+                if (next.GetCompany() == _Company)
+                {
+                    return next;
+                }
+            }
+            return null;
+        }
         static void Main(string[] args)
         {
-            Customer c1 = new Customer("\nRocket Mortgage", "\nMarko Johnson", "\nmarkojohnson@rocketmortgage.com", "\n(555) 555-1234");
+            //Customer c1 = new Customer("\nRocket Mortgage", "\nMarko Johnson", "\nmarkojohnson@rocketmortgage.com", "\n(555) 555-1234");
             //Console.WriteLine(c1);
             //Console.WriteLine(c1.GetContactEmail());
             //Console.WriteLine(c1.GetPhone());
             //Console.WriteLine(c1.GetContactName());
             //Console.WriteLine(c1.GetCompany());
 
-            string contacts = c1.ToString();
-            Console.WriteLine(contacts);
+            //string contacts = c1.ToString();
+            //Console.WriteLine(contacts);
+
+            List<Customer> contacts = new List<Customer>();
+
+            Customer mycustomer = new Customer("Rocket Mortgage", "\nRobert Tims", "\nroberttims@rocketmortgage.com", "\n(555) 555-1234");
+            contacts.Add(mycustomer);
+
+            Console.WriteLine("Here is the list of contacts:");
+            ListCustomer(contacts);
+
+            
+            mycustomer = new Customer("\nSecurAmerica", "\nJesse Spratt", "\njessespratt@gmail.com", "\n(555) 444-1234");
+            contacts.Add(mycustomer);
+
+            mycustomer = new Customer("\nRock Financial", "\nVanessa Wilson", "\nvanessawilson@gmail.com", "\n(555) 888-1234");
+            contacts.Add(mycustomer);
+
+            Console.WriteLine("\nHere is an updated list of contacts:");
+            ListCustomer(contacts);
+
+
+
         }
     }
 }
