@@ -105,6 +105,9 @@ namespace Lab4_3
             //string contacts = c1.ToString();
             //Console.WriteLine(contacts);
 
+            //string list = mycustomer.ToString();
+            //Console.WriteLine(list);
+
             List<Customer> contacts = new List<Customer>();
 
             Customer mycustomer = new Customer("Rocket Mortgage", "Robert Tims", "roberttims@rocketmortgage.com", "(555) 555-1234");
@@ -130,8 +133,7 @@ namespace Lab4_3
 
 
 
-            //string list = mycustomer.ToString();
-            //Console.WriteLine(list);
+            
 
             Console.WriteLine("\nPlease enter a company name to search for customers associated with company: ");
             string response = Console.ReadLine();
@@ -148,7 +150,7 @@ namespace Lab4_3
             }
             else
             {
-                Console.WriteLine($"\nCustomer for {response} was not found in the database!");
+                Console.WriteLine($"\nCustomer for {response} does not exist in the database!");
             }
 
 
